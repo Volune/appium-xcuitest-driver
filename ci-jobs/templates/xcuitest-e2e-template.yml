@@ -62,6 +62,6 @@ jobs:
       script: |
         brew tap facebook/fb
         brew install idb-companion
-        pip3.7 install fb-idb
+        pip3 install fb-idb
         npm install --no-save mjpeg-consumer
         npx mocha --timeout 480000 --reporter mocha-multi-reporters --reporter-options config-file=./ci-jobs/mocha-config.json --recursive build/test/functional/basic -g @skip-ci -i --exit
