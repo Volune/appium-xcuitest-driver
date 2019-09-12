@@ -8,6 +8,8 @@ import { doesIncludeCookie, doesNotIncludeCookie,
          newCookie, oldCookie1 } from './safari-cookie-e2e-specs';
 import { SAFARI_CAPS } from '../desired';
 import https from 'https';
+import { util } from 'appium-support';
+
 
 const pem = B.promisifyAll(require('pem'));
 
@@ -25,7 +27,7 @@ let caps = _.defaults({
 
 let pemCertificate;
 
-if (!process.env.REAL_DEVICE && !process.env.CLOUD) {
+if (!process.env.REAL_DEVICE && !process.env.CLOUD && util.compareVersions(SAFARI_CAPS.platformVersion, '<', '13.0')) {
   describe('Safari SSL', function () {
     this.timeout(MOCHA_TIMEOUT);
 
